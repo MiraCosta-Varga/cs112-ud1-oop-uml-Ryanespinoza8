@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 
 public class Booking {
-    private User user;           // The user who made the booking
+    private User user;           // The user who makes the booking
     private Movie movie;         // The movie being booked
     private int seatsBooked;     // Number of seats booked
     private LocalDateTime bookingDate;  // Date and time when the booking was made
@@ -38,7 +38,7 @@ public class Booking {
         return bookingDate;
     }
 
-    // Method to display the booking details
+    // booking details
     public String getBookingDetails() {
         return "Booking Details: \n" +
                 "User: " + user.getUsername() + "\n" +
@@ -47,11 +47,12 @@ public class Booking {
                 "Booking Date: " + bookingDate;
     }
 
-    // Method to cancel the booking (also updates the available seats in the movie)
+    // cancel the booking (also updates the available seats in the movie)
     public void cancelBooking() {
         movie.freeSeats(seatsBooked); // Free up the booked seats in the movie
         System.out.println("Booking canceled: " + getBookingDetails());
     }
+    
 
     @Override
     public String toString() {
