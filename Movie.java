@@ -6,7 +6,7 @@ class Movie{
     private int totalSeats;
     private int availableSeats;
 
-    public Movie(String title, String director, String genre, int availableSeats) {
+    public Movie(String title, String director, String genre, int totalSeats) {
         if (title == null || title.isEmpty()) {
             throw new IllegalArgumentException("Movie title cannot be empty.");
         }
@@ -16,8 +16,8 @@ class Movie{
         if (genre == null || genre.isEmpty()) {
             throw new IllegalArgumentException("Movie genre cannot be empty.");
         }
-        if (availableSeats < 0) {
-            throw new IllegalArgumentException("Available seats cannot be negative.");
+        if (totalSeats < 0) {
+            throw new IllegalArgumentException("Total seats cannot be negative.");
         }
         this.title = title;
         this.director = director;
@@ -25,6 +25,8 @@ class Movie{
         this.totalSeats = totalSeats;
         this.availableSeats = totalSeats;
     }
+    
+    
 
 
 
@@ -70,7 +72,7 @@ class Movie{
 
     public void updateAvailableSeats(int ticketsToBook) throws MovieNotAvailableException {
         if (ticketsToBook > availableSeats) {
-            // Throw MovieNotAvailableException if there aren't enough available seats
+            // Throw MovieNotAvailableException if there is not enough available seats
             throw new MovieNotAvailableException("Not enough available seats for movie: " + title);
         }
         // Otherwise, update the available seats
