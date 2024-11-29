@@ -15,7 +15,7 @@ public abstract class User {
 
         this.username = username;
         this.password = password;
-        this.maxBookings = 5; // Default max bookings for a regular user
+        this.maxBookings = 5;
         this.currentBookings = 0;
     }
 
@@ -36,12 +36,12 @@ public abstract class User {
         return currentBookings;
     }
 
-    // Abstract methods to be implemented by concrete classes
+    // Abstract methods for concrete classes
     public abstract void bookTicket(Movie movie, int seats) throws MovieNotAvailableException;
 
     public abstract void cancelBooking(Movie movie, int seats);
 
-    // Method to check if user has reached the max bookings
+    // Method that checks if user has reached the max bookings
     public boolean canBook() {
         return currentBookings < maxBookings;
     }
